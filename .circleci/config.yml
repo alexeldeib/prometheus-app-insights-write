@@ -1,0 +1,10 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: |
+          docker login -u $docker_username -p $docker_password
+      - run: docker build -t alexeldeib/prom-ai-remote-write .
+      - run: docker push alexeldeib/prom-ai-remote-write
