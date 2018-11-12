@@ -6,5 +6,5 @@ jobs:
       - checkout
       - run: |
           docker login -u $docker_username -p $docker_password
-      - run: docker build -t alexeldeib/prom-ai-remote-write .
-      - run: docker push alexeldeib/prom-ai-remote-write
+      - run: docker build -t alexeldeib/prometheus-appinsights-remote-write .
+      - run: docker push alexeldeib/prometheus-appinsights-remote-write
