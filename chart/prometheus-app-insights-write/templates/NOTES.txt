@@ -1,0 +1,8 @@
+Add a remote_write block to your Prometheus configuration:
+
+  remote_write:
+    - url: "http://{{ template "prometheus-app-insights-write.name" . }}.default.svc.cluster.local/metrics"
+
+View the logs from your new application to make sure it's sending telemetry:
+
+  kubectl logs $(kubectl get pods -l app={{ template "prometheus-app-insights-write.name" . }}  -o jsonpath="{.items[0].metadata.name}")

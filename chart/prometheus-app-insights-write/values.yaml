@@ -1,4 +1,4 @@
-# Default values for prometheus-appinsights-remote-write.
+# Default values for prometheus-app-insights-write.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -7,7 +7,7 @@ ikey: ""
 replicaCount: 1
 
 image:
-  repository: alexeldeib/prometheus-appinsights-remote-write
+  repository: alexeldeib/prometheus-app-insights-write
   tag: 1.0.0-alpha
   pullPolicy: Always
 
