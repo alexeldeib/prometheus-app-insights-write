@@ -14,7 +14,7 @@ RUN go mod download
 COPY main.go .
 
 # Build the binary
-RUN go build -o /go/bin/transport
+RUN CGO_ENABLED=0 go build -o /go/bin/transport
 
 # <- Second step to build minimal image
 FROM scratch
