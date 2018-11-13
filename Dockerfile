@@ -3,17 +3,18 @@ FROM golang:1.11.1-alpine3.8 as build
 RUN mkdir /transport
 WORKDIR /transport
 
+RUN apk add --update --no-cache git
+
 COPY go.mod .
 COPY go.sum .
 
-# Get dependencies - will also be cached if we won't change mod/sum
-RUN apk add --update --no-cache git
+RUN go mod download
 
 # COPY the source code as the last step
 COPY main.go .
 
 # Build the binary
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o /go/bin/transport
+RUN go build -o /go/bin/transport
 
 # <- Second step to build minimal image
 FROM scratch
