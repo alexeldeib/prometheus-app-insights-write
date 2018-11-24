@@ -1,10 +1,10 @@
 pipeline:
   build:
     image: docker
-      secrets: ["docker_pass"]
-      commands:
-      - docker login -u alexeldeib -p $DOCKER_PASS
-      - docker build . -t alexeldeib/prometheus-app-insights-write
-      - docker push -t alexeldeib/prometheus-app-insights-write
-      volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+    secrets: ["docker_pass"]
+    commands:
+    - docker login -u alexeldeib -p $DOCKER_PASS
+    - docker build . -t alexeldeib/prometheus-app-insights-write
+    - docker push -t alexeldeib/prometheus-app-insights-write
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
